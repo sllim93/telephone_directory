@@ -13,5 +13,8 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'IndexController@home']);
 
-Auth::routes(['login']);
+Auth::routes();
 
+Route::group(['prefix'=>'directory', 'as'=>'directory.'], function(){
+    Route::get('/', ['as' => 'index', 'uses' => 'DirectoryController@index']);
+});

@@ -10,6 +10,14 @@
 					<span class="m-menu__link-text">Home</span>
 				</a>
 			</li>
+			@if(auth()->user())
+			<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true" m-menu-submenu-toggle="hover">
+				<a href="{{route('directory.index')}}" class="m-menu__link m-menu__toggle">
+					<i class="m-menu__link-icon fas fa-chalkboard"></i>
+					<span class="m-menu__link-text">Directory</span>
+				</a>
+			</li>
+			@endif
 		</ul>
 	</div>
 </div>

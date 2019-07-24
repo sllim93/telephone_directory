@@ -30,6 +30,15 @@
 							<div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general m-stack--fluid">
 								<div class="m-stack__item m-topbar__nav-wrapper">
 									<ul class="m-topbar__nav m-nav m-nav--inline">
+										@if(auth()->user())
+										<li class="m-nav__item" m-dropdown-toggle="click">
+											<a href="{{route('logout')}}" class="btn btn-danger btn-sm dmTop-20">
+												<span class="m-nav__link-text">
+													Logout
+												</span>
+											</a>
+										</li>
+										@else
 										<li class="m-nav__item" m-dropdown-toggle="click">
 											<a href="{{route('login')}}" class="btn btn-brand btn-sm dmTop-20">
 												<span class="m-nav__link-text">
@@ -37,6 +46,7 @@
 												</span>
 											</a>
 										</li>
+										@endif
 									</ul>
 								</div>
 							</div>
@@ -47,7 +57,9 @@
 			<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
 				@include('layouts._partials.sidebar')
 				<div class="m-grid__item m-grid__item--fluid m-wrapper">
+					<div class="m-content">
 					@yield('content')
+					</div>
 				</div>
 			</div>
 			@include('layouts._partials.footer')
